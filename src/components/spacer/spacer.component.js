@@ -22,7 +22,7 @@ const getVariant = (position, size, theme) => {
 };
 
 const SpacerView = styled.View`
-  ${({ variant }) => variant}
+  ${(props) => props.variant}
 `;
 
 // export const Spacer = styled.View`
