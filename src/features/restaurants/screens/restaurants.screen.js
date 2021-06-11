@@ -1,22 +1,22 @@
-import React, { useContext } from 'react';
-import { FlatList, Pressable } from 'react-native';
+import React, { useContext } from "react";
+import { FlatList, TouchableOpacity } from "react-native";
 
-import { ActivityIndicator, Colors } from 'react-native-paper';
+import { ActivityIndicator, Colors } from "react-native-paper";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Spacer } from '../../../components/spacer/spacer.component';
-import { SafeArea } from '../../../components/utility/safe-area.component';
+import { Spacer } from "../../../components/spacer/spacer.component";
+import { SafeArea } from "../../../components/utility/safe-area.component";
 
-import { Search } from '../components/search.component';
+import { Search } from "../components/search.component";
 
-import { RestaurantInfoCard } from '../components/restaurant-info-card.components';
-import { RestaurantsContext } from '../../../services/restaurants/restaurants.context';
+import { RestaurantInfoCard } from "../components/restaurant-info-card.components";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: { padding: 16 }
+  contentContainerStyle: { padding: 16 },
 })`
-  margin-bottom: ${props => props.theme.space[0]};
+  margin-bottom: ${(props) => props.theme.space[0]};
 `;
 
 const Loading = styled(ActivityIndicator)`
@@ -42,13 +42,17 @@ export const RestaurantsScreen = ({ navigation }) => {
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => (
-          <Pressable onPress={() => navigation.navigate('RestaurantDetail')}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("RestaurantDetail", { restaurant: item })
+            }
+          >
             <Spacer position="bottom" size="large">
               <RestaurantInfoCard restaurant={item} />
             </Spacer>
-          </Pressable>
+          </TouchableOpacity>
         )}
-        keyExtractor={item => item.name}
+        keyExtractor={(item) => item.name}
       />
     </SafeArea>
   );
