@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import firebase from 'firebase/app';
 
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import {
   useFonts as useOswald,
-  Oswald_400Regular
+  Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 
@@ -24,7 +24,7 @@ const firebaseConfig = {
   projectId: 'mealstogo-7b7d1',
   storageBucket: 'mealstogo-7b7d1.appspot.com',
   messagingSenderId: '30029844934',
-  appId: '1:30029844934:web:5d387ee9f4def9ffae62c7'
+  appId: '1:30029844934:web:5d387ee9f4def9ffae62c7',
 };
 
 if (!firebase.apps.length) {

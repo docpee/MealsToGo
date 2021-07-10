@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import { Spacer } from "../../../components/spacer/spacer.component";
+import { Spacer } from '../../../components/spacer/spacer.component';
 import {
   AccountBackground,
   AccountContainer,
   AccountCover,
   AuthButton,
   Title,
-} from "../components/account.styles";
+} from '../components/account.styles';
 
 export const AccountScreen = ({ navigation }) => {
   return (
@@ -18,15 +18,15 @@ export const AccountScreen = ({ navigation }) => {
         <AuthButton
           icon="lock-open-outline"
           mode="contained"
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate('Login')}
         >
           Login
         </AuthButton>
         <Spacer size="large">
           <AuthButton
-            icon="lock-open-outline"
+            icon="email"
             mode="contained"
-            onPress={() => navigation.navigate("Register")}
+            onPress={() => navigation.navigate('Register')}
           >
             Register
           </AuthButton>
