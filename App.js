@@ -1,30 +1,27 @@
-import React from 'react';
-import firebase from 'firebase/app';
+import React from "react";
+import firebase from "firebase/app";
 
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import {
   useFonts as useOswald,
   Oswald_400Regular,
-} from '@expo-google-fonts/oswald';
-import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
+} from "@expo-google-fonts/oswald";
+import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-import { ThemeProvider } from 'styled-components/native';
-import { theme } from './src/infrastructure/theme/';
+import { ThemeProvider } from "styled-components/native";
+import { theme } from "./src/infrastructure/theme/";
 
-import { Navigation } from './src/infrastructure/navigation/';
+import { Navigation } from "./src/infrastructure/navigation/";
 
-import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context';
-import { LocationContextProvider } from './src/services/location/location.context';
-import { FavouritesContextProvider } from './src/services/favourites/favourites.context';
-import { AuthenticationContextProvider } from './src/services/authentication/authentication.context';
+import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCv8dtcwQf7_wHgYrOeBDgHbgNMnCFMht0',
-  authDomain: 'mealstogo-7b7d1.firebaseapp.com',
-  projectId: 'mealstogo-7b7d1',
-  storageBucket: 'mealstogo-7b7d1.appspot.com',
-  messagingSenderId: '30029844934',
-  appId: '1:30029844934:web:5d387ee9f4def9ffae62c7',
+  apiKey: "AIzaSyCv8dtcwQf7_wHgYrOeBDgHbgNMnCFMht0",
+  authDomain: "mealstogo-7b7d1.firebaseapp.com",
+  projectId: "mealstogo-7b7d1",
+  storageBucket: "mealstogo-7b7d1.appspot.com",
+  messagingSenderId: "30029844934",
+  appId: "1:30029844934:web:5d387ee9f4def9ffae62c7",
 };
 
 if (!firebase.apps.length) {
@@ -64,13 +61,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         {/* <RestaurantsScreen /> */}
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <Navigation />
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
