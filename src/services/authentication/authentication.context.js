@@ -10,14 +10,14 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
-  firebase.auth().onAuthStateChanged((usr) => {
-    if (usr) {
-      setUser(usr);
-      setIsLoading(false);
-    } else {
-      setIsLoading(false);
-    }
-  });
+  // firebase.auth().onAuthStateChanged((usr) => {
+  //   if (usr) {
+  //     setUser(usr);
+  //     setIsLoading(false);
+  //   } else {
+  //     setIsLoading(false);
+  //   }
+  // });
 
   const onLogin = (email, password) => {
     setIsLoading(true);
